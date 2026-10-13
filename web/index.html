@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Conference Room — Agora SPA</title>
+  <!-- Agora SDK (kept as requested). If this CDN URL doesn't work, replace with official agora-rtc-sdk-ng CDN -->
+  <script src="https://agora.io"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <section id="homeScreen" class="home-shell">
+      <div class="hero">
+        <div class="brand">
+          <div class="eyebrow">Agora RTC • Live video</div>
+          <h1>Видеоконференции для команды и друзей.</h1>
+          <p class="lead">
+            Создайте комнату за секунду, отправьте ссылку коллегам и проводите встречу в одном окне —
+            без сборки, без фреймворков, без лишних зависимостей.
+          </p>
+
+          <div class="actions">
+            <button id="createBtn" class="primary">Создать конференцию</button>
+            <button id="joinBtn" class="secondary">Войти по ссылке</button>
+          </div>
+
+          <div class="notice">
+            <strong>👉</strong>
+            Если ссылка уже есть в адресной строке в формате <code>?room=room-xyz123</code>, вы можете сразу присоединиться.
+          </div>
+        </div>
+
+        <div class="promo-card">
+          <div class="mini-window" aria-hidden="true">
+            <div class="avatar">A</div>
+            <div class="avatar">B</div>
+            <div class="avatar">C</div>
+            <div class="avatar">D</div>
+          </div>
+
+          <div class="promo-meta">
+            <span>До 10 участников</span>
+            <span class="room-pill">RTC + Web</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="callScreen" class="call-shell hidden">
+      <div class="topbar">
+        <div class="room-block">
+          <span class="dot"></span>
+          <div class="room-id" id="roomLabel">Комната: —</div>
+        </div>
+
+        <div class="topbar-actions">
+          <button id="copyLinkBtn" class="ghost mini">Скопировать ссылку</button>
+          <button id="leaveBtn" class="ghost mini danger">Повесить трубку</button>
+        </div>
+      </div>
+
+      <div class="stage-wrap">
+        <div id="stage" class="stage" aria-live="polite"></div>
+      </div>
+
+      <div class="controls">
+        <button id="toggleAudioBtn" class="control">
+          <span class="icon">🎙️</span>
+          <span>Выкл. микрофон</span>
+        </button>
+
+        <button id="toggleVideoBtn" class="control">
+          <span class="icon">📹</span>
+          <span>Выкл. камеру</span>
+        </button>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
